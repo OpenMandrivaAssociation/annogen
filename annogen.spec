@@ -36,7 +36,7 @@
 
 Name:           annogen
 Version:        0.1.1
-Release:        %mkrel 2.1.1
+Release:        %mkrel 2.1.2
 Epoch:          0
 Summary:        Framework to help work with JSR175 Annotations
 License:        Public Domain
@@ -67,8 +67,6 @@ Requires:       xerces-j2 >= 0:2.7.1
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 %if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
 BuildRequires:  java-gcj-compat-devel
 %else
 BuildArch:      noarch
