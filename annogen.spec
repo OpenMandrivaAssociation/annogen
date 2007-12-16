@@ -36,7 +36,7 @@
 
 Name:           annogen
 Version:        0.1.1
-Release:        %mkrel 2.1.2
+Release:        %mkrel 2.1.3
 Epoch:          0
 Summary:        Framework to help work with JSR175 Annotations
 License:        Public Domain
@@ -45,7 +45,7 @@ URL:            http://www.mathcs.emory.edu/dcl/util/backport-util-concurrent/
 Source0:        %{name}-%{version}.tar.gz
 Patch0:         annogen-no1.5.patch
 Patch1:         annogen-stax-jarnamefix.patch
-BuildRequires:  jpackage-utils, ant, junit
+BuildRequires:  java-rpmbuild, ant, junit
 BuildRequires:  java-icedtea
 BuildRequires:  antlr >= 0:2.7.4
 BuildRequires:  findbugs >= 0:0.9.1
