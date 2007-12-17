@@ -65,7 +65,6 @@ Requires:       findbugs >= 0:0.9.1
 Requires:       qdox >= 0:1.4
 Requires:       xerces-j2 >= 0:2.7.1
 
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 %if %{gcj_support}
 BuildRequires:  java-gcj-compat-devel
 %else
