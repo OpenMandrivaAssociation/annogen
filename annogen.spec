@@ -36,7 +36,7 @@
 
 Name:           annogen
 Version:        0.1.1
-Release:        %mkrel 2.1.3
+Release:        %mkrel 2.1.4
 Epoch:          0
 Summary:        Framework to help work with JSR175 Annotations
 License:        Public Domain
@@ -46,7 +46,6 @@ Source0:        %{name}-%{version}.tar.gz
 Patch0:         annogen-no1.5.patch
 Patch1:         annogen-stax-jarnamefix.patch
 BuildRequires:  java-rpmbuild, ant, junit
-BuildRequires:  java-icedtea
 BuildRequires:  antlr >= 0:2.7.4
 BuildRequires:  findbugs >= 0:0.9.1
 BuildRequires:  bcel >= 0:5.1
@@ -55,7 +54,7 @@ BuildRequires:  bea-stax >= 0:1.2.0
 BuildRequires:  dom4j >= 0:1.6.1
 BuildRequires:  qdox >= 0:1.4
 BuildRequires:  xerces-j2 >= 0:2.7.1
-Requires:       java-icedtea
+Requires:       java >= 1.6
 Requires:       antlr >= 0:2.7.4
 Requires:       bcel >= 0:5.1
 Requires:       bea-stax-api >= 0:1.2.0
@@ -111,7 +110,7 @@ build-jar-repository -s -p external/findbugs \
 %build
 export CLASSPATH=$(build-classpath antlr bcel bea-stax-api bea-stax-ri dom4j qdox junit xerces-j2 findbugs/findbugs findbugs/findbugs-ant findbugs/findbugs-gui findbugs/findbugs-coreplugin)
 export OPT_JAR_LIST=:
-JAVA_HOME=%{_jvmdir}/java-icedtea ant -Dbuild.sysclasspath=only distribution
+%ant -Dbuild.sysclasspath=only distribution
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -120,8 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d -m 755 $RPM_BUILD_ROOT%{_javadir}
 install -m 644 build/distribution/%{name}-%{version}.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
-ln -s %{name}-%{version}.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
+%create_jar_links
 
 # javadoc
 install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
@@ -129,9 +127,7 @@ cp -pr build/distribution/docs/* \
     $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}
 
-%if %{gcj_support}
-%{_bindir}/aot-compile-rpm
-%endif
+%{gcj_compile}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -147,10 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(0644,root,root,0755)
 %{_javadir}/*
-%if %{gcj_support}
-%dir %{_libdir}/gcj/%{name}
-%attr(-,root,root) %{_libdir}/gcj/%{name}/*
-%endif
+%{gcj_files}
 
 %files javadoc
 %defattr(0644,root,root,0755)
