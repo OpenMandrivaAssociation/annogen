@@ -36,7 +36,7 @@
 
 Name:           annogen
 Version:        0.1.1
-Release:        %mkrel 5.1.4
+Release:        %mkrel 5.1.5
 Epoch:          0
 Summary:        Framework to help work with JSR175 Annotations
 License:        Public Domain
