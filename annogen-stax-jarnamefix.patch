@@ -1,0 +1,129 @@
+--- ./build-distribution.xml.sav	2006-01-19 11:53:41.000000000 -0500
++++ ./build-distribution.xml	2006-01-19 17:14:02.000000000 -0500
+@@ -29,8 +29,8 @@
+ 
+     <mkdir dir='${dist_dir}/lib'/>
+     <copy todir='${dist_dir}/lib'>
+-      <fileset file='external/lib/stax-api.jar'/>
+-      <fileset file='external/lib/stax-impl.jar'/>
++      <fileset file='external/lib/bea-stax-api.jar'/>
++      <fileset file='external/lib/bea-stax-ri.jar'/>
+     </copy>
+ 
+     <jar jarfile='build/annogen-devkit-${annogen-version}.zip' basedir='${dist_dir}'/>
+--- ./build-jam.xml.sav	2006-01-19 17:28:16.000000000 -0500
++++ ./build-jam.xml	2006-01-19 17:28:31.000000000 -0500
+@@ -8,7 +8,7 @@
+   <property name='src_dir'           value='${core}/src'/>
+   <property name='src150_dir'        value='${core}/src_150'/>
+ 
+-  <property name='stax_api_jar'      value='external/lib/stax-api.jar'/>
++  <property name='stax_api_jar'      value='external/lib/bea-stax-api.jar'/>
+ 
+   <!-- Targets -->
+ 
+@@ -55,4 +55,4 @@
+ 
+ 
+ 
+-</project>
+\ No newline at end of file
++</project>
+--- ./build-annogen-test.xml.sav	2006-01-19 17:28:52.000000000 -0500
++++ ./build-annogen-test.xml	2006-01-19 17:29:13.000000000 -0500
+@@ -8,8 +8,8 @@
+   <property name='samples_dir'       location='annogen/test/samples'/>
+ 
+   <property name='junit_jar'         location='external/lib/junit.jar' />
+-  <property name='stax_api_jar'      location='external/lib/stax-api.jar'/>
+-  <property name='stax_impl_jar'     location='external/lib/stax/stax-impl.jar'/>
++  <property name='stax_api_jar'      location='external/lib/bea-stax-api.jar'/>
++  <property name='stax_impl_jar'     location='external/lib/bea-stax-ri.jar'/>
+ 
+   <property name='codegen_build_dir' location='build/annogen_codegen'/>
+   <property name='cases_build_dir'   location='build/annogen_test_cases'/>
+@@ -121,4 +121,4 @@
+     </condition>
+   </target>
+ 
+-</project>
+\ No newline at end of file
++</project>
+--- ./build-docs.xml.sav	2006-01-19 17:29:30.000000000 -0500
++++ ./build-docs.xml	2006-01-19 17:29:45.000000000 -0500
+@@ -10,8 +10,8 @@
+ 
+   <path id='javadoc_classpath'>
+     <pathelement location='build/classes'/>
+-    <pathelement location='external/lib/stax-api.jar'/>
+-    <pathelement location='external/lib/stax-impl.jar'/>
++    <pathelement location='external/lib/bea-stax-api.jar'/>
++    <pathelement location='external/lib/bea-stax-ri.jar'/>
+     <pathelement location='${env.ANT_HOME}/lib/ant.jar'/>
+   </path>
+ 
+@@ -93,4 +93,4 @@
+     </exec>
+   </target>
+ 
+-</project>
+\ No newline at end of file
++</project>
+--- ./build-findbugs.xml.sav	2006-01-19 17:29:53.000000000 -0500
++++ ./build-findbugs.xml	2006-01-19 17:30:15.000000000 -0500
+@@ -8,7 +8,7 @@
+ 
+   <property name='findbugs_home'     location='external/findbugs'/>
+   <property name='findbugs_jar'      location='${findbugs_home}/lib/findbugs-ant.jar'/>
+-  <property name='stax_api_jar'      location='external/lib/stax-api.jar'/>
++  <property name='stax_api_jar'      location='external/lib/bea-stax-api.jar'/>
+   <property name='junit_jar'         location='external/lib/junit.jar' />
+ 
+   <path id='sourcepath'>
+@@ -52,4 +52,4 @@
+     </exec>
+   </target>
+ 
+-</project>
+\ No newline at end of file
++</project>
+--- ./build-jam-test.xml.sav	2006-01-19 17:30:28.000000000 -0500
++++ ./build-jam-test.xml	2006-01-19 17:30:45.000000000 -0500
+@@ -11,8 +11,8 @@
+   <property name='extjar_jar'        value='${build_dir}/extjar.jar'/>
+ 
+   <property name='junit_jar'         value='external/lib/junit.jar' />
+-  <property name='stax_api_jar'      value='external/lib/stax-api.jar'/>
+-  <property name='stax_impl_jar'     value='external/lib/stax-impl.jar'/>
++  <property name='stax_api_jar'      value='external/lib/bea-stax-api.jar'/>
++  <property name='stax_impl_jar'     value='external/lib/bea-stax-ri.jar'/>
+ 
+ 
+   <property name='test' value='jam/test'/>
+@@ -155,4 +155,4 @@
+ 
+ 
+ 
+-</project>
+\ No newline at end of file
++</project>
+--- ./build-website.xml.sav	2006-01-19 17:30:56.000000000 -0500
++++ ./build-website.xml	2006-01-19 17:31:10.000000000 -0500
+@@ -7,8 +7,8 @@
+ 
+   <path id='javadoc_classpath'>
+     <pathelement location='build/classes'/>
+-    <pathelement location='external/lib/stax-api.jar'/>
+-    <pathelement location='external/lib/stax-impl.jar'/>
++    <pathelement location='external/lib/bea-stax-api.jar'/>
++    <pathelement location='external/lib/bea-stax-ri.jar'/>
+     <pathelement location='${env.ANT_HOME}/lib/ant.jar'/>
+    </path>
+ 
+@@ -45,4 +45,4 @@
+     </exec>
+   </target>
+ 
+-</project>
+\ No newline at end of file
++</project>

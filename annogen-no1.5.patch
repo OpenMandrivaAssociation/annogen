@@ -1,0 +1,42 @@
+--- ./build-distribution.xml.sav	2006-01-19 17:43:42.000000000 -0500
++++ ./build-distribution.xml	2006-01-19 17:44:33.000000000 -0500
+@@ -11,7 +11,7 @@
+ 
+   <!-- Targets -->
+ 
+-  <target name='all' depends='require150' if='is150'>
++  <target name='all'>
+ 
+     <antcall target='jars'/>
+ 
+--- ./build-docs.xml.sav	2006-01-19 17:44:23.000000000 -0500
++++ ./build-docs.xml	2006-01-19 17:47:07.000000000 -0500
+@@ -40,7 +40,7 @@
+              classpathref='javadoc_classpath'
+              destdir='${jam_javadocs}'
+              windowtitle='JAM API Documentation'
+-             overview='docs/jam_overview.html'
++             overview='docs/jam-overview.html'
+              stylesheetfile='${docs_build_dir}/javadoc.css'>
+       <fileset dir='jam/core/src'>
+         <include name='**/*.java'/>
+@@ -55,7 +55,7 @@
+              classpathref='javadoc_classpath'
+              destdir='${annogen_javadocs}'
+              windowtitle='JAM API Documentation'
+-             overview='docs/annogen_overview.html'
++             overview='docs/annogen-overview.html'
+              stylesheetfile='${docs_build_dir}/javadoc.css'>
+       <fileset dir='annogen/core/src'>
+         <include name='**/*.java'/>
+@@ -77,10 +77,6 @@
+         <include name='**/*.java'/>
+         <exclude name='**/internal/**/*.java'/>
+       </fileset>
+-      <fileset dir='annogen/adapters/mirror/src_150'>
+-        <include name='**/*.java'/>
+-        <exclude name='**/internal/**/*.java'/>
+-      </fileset>
+ 
+     </javadoc>
+ 
