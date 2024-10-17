@@ -41,7 +41,7 @@ Epoch:          0
 Summary:        Framework to help work with JSR175 Annotations
 License:        Public Domain
 Group:          Development/Java
-URL:            http://www.mathcs.emory.edu/dcl/util/backport-util-concurrent/
+URL:            https://www.mathcs.emory.edu/dcl/util/backport-util-concurrent/
 Source0:        %{name}-%{version}.tar.gz
 Patch0:         annogen-no1.5.patch
 Patch1:         annogen-stax-jarnamefix.patch
